@@ -16,7 +16,11 @@ struct RemindersApp: App {
     var body: some Scene {
         WindowGroup {
             // reference
-            ContentView(store: store)
+            // Also need to be embedded into navigation view in order to run it on app
+            
+            NavigationView{
+                ContentView(store: store)
+            }
         }
     }
 }

@@ -7,8 +7,9 @@
 
 import Foundation
 
-enum TaskPriority {
-    case high
-    case medium
-    case low
+// Can make the enumeration attach to a string(type) in order to make a bar that allows user to select priority
+enum TaskPriority: String{
+    case high = "High"
+    case medium = "Medium"
+    case low = "Low"
 }
