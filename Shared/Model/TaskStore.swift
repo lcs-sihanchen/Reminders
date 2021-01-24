@@ -16,4 +16,4 @@ class TaskStore: ObservableObject {
 }
 
 // instance of the class
-let taskStore = TaskStore(tasks: testData)
+let testStore = TaskStore(tasks: testData)

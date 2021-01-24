@@ -8,14 +8,24 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    // Information passed by app level
+    @ObservedObject var store: TaskStore
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        // A list of items that needs to be displayed
+        List(store.tasks) { task in
+            
+            // Task cell deal with only one task
+            TaskCell(task: task)
+            
+        }
     }
 }
 
+// What I see in the preview
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(store: testStore)
     }
 }

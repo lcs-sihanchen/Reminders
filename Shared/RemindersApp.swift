@@ -9,9 +9,14 @@ import SwiftUI
 
 @main
 struct RemindersApp: App {
+    // Source of truth
+    // data created at the app level
+    // @state --- this instance is created by this file, source of truth
+   @StateObject private var store = TaskStore(tasks: testData)
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            // reference
+            ContentView(store: store)
         }
     }
 }
