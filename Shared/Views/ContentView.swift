@@ -39,7 +39,7 @@ struct ContentView: View {
         
         .sheet(isPresented: $showingAddTaskView) {
             // Trigger add task view once status changes
-            AddTask(showing: $showingAddTaskView)
+            AddTask(store: store, showing: $showingAddTaskView)
         }
     }
 }
