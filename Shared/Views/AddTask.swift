@@ -15,6 +15,11 @@ struct AddTask: View {
     @State private var description = ""
     @State private var priority = TaskPriority.low
 
+    // a binding that allows us to see whether the view is showing
+    // derived value
+    // change true false
+    
+    @Binding var showing: Bool
     var body: some View {
         NavigationView{
             VStack {
@@ -37,12 +42,27 @@ struct AddTask: View {
                 
             }
             .navigationTitle("New Reminder")
+            .toolbar {
+                ToolbarItem(placement: .primaryAction) {
+                    Button("Save") {
+                        // When clicking save, trigger save task view
+                        saveTask()
+                    }
+                }
+            }
+            
         }
+    }
+    
+    func saveTask() {
+        // Dismiss this view
+        showing = false
     }
 }
 
 struct AddTask_Previews: PreviewProvider {
     static var previews: some View {
-        AddTask()
+        // When we don't have a binding in the view
+        AddTask(showing: .constant(true))
     }
 }
