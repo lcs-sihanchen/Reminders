@@ -20,12 +20,16 @@ struct ContentView: View {
             TaskCell(task: task)
             
         }
+        .navigationTitle("Reminders")
     }
 }
 
 // What I see in the preview
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(store: testStore)
+        // Embed in Navigation View
+        NavigationView{
+            ContentView(store: testStore)
+        }
     }
 }
